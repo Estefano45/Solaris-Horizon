@@ -95,7 +95,7 @@ Soporte vital recicla aire y extrae agua usando energía; investiga volátiles p
 
 ## Publicar actualizaciones en Netlify
 
-Sitio vinculado: https://superb-travesseiro-23b15a.netlify.app/
+Sitio vinculado: https://lunar-guardians-aurora.netlify.app/
 
 El juego se sirve desde `dist`. Las cuatro rutas `/api/nasa`, `/api/nasa/audit`, `/api/moon-tile` y `/api/science` se ejecutan en `netlify/functions/nasa.mjs`, reutilizando `nasa-service.cjs`. No dependen de que tu computadora esté encendida. `npm start` conserva el funcionamiento local.
 
