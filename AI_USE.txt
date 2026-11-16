@@ -1,0 +1,15 @@
+AI USE IN THIS PROJECT
+======================
+
+During the development of Lunar Guardians, AI tools were used as a
+programming aid, with the goal of moving forward more efficiently in
+development.
+
+AI was mainly used to:
+
+- Speed up code writing, review, and debugging.
+- Explore technical solutions and best practices.
+- Quickly answer questions and document parts of the project.
+
+AI acted as a support tool. All design decisions, final review, and
+responsibility for the code remain with the development team.
