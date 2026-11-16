@@ -1,0 +1,570 @@
+PAGE 1
+NASA SPACE APPS CHALLENGE 2026
+JUNIOR
+ASTRONAUT
+MISSION TRAINER
+GUÍA DE ANÁLISIS Y DESARROLLO
+Todo sobre el reto, los sistemas de supervivencia,
+los datos NASA y la propuesta de videojuego
+Lunar Guardians.
+DOCUMENTO DE TRABAJO
+Edición: 13 de noviembre de 2026  •  Idioma: español
+Análisis independiente con enlaces a fuentes oficiales. No es una publicación de NASA.
+
+LINKS []
+PAGE 2
+SPACE APPS 2026  /  MISIÓN JUNIOR ASTRONAUT
+GUÍA DE PROYECTO
+Documento independiente  •  13 NOV 2026
+02
+00 / ORIENTACIÓN
+Lo esencial en dos minutos
+Un desafío para convertir decisiones complejas de ingeniería espacial en una experiencia educativa,
+divertida y comprensible.
+EL RETO, EN UNA FRASE
+Diseñar y construir un juego o aplicación interactiva en la que estudiantes administren una base
+lunar o marciana y equilibren necesidades contrapuestas de soporte vital, protección contra
+radiación, energía y alimentos.
+DATO
+DESCRIPCIÓN
+Nombre oficial
+Build a Junior Astronaut Mission Trainer
+Evento
+NASA Space Apps Challenge 2026 - The Next Frontier
+Nivel señalado
+Beginner/Youth e Intermediate
+Áreas
+Games, Planets & Moons, Software, Space Exploration, Sun
+Fechas del hackatón
+14 y 15 de noviembre de 2026
+Producto esperado
+Juego o aplicación interactiva; no se exige un motor o lenguaje específico.
+La decisión estratégica
+Construir primero un simulador web 2D de gestión lunar, con tres recursos conectados, dos o tres eventos, una
+misión corta y una explicación educativa posterior a cada elección. La complejidad debe estar en las
+consecuencias, no en gráficos innecesariamente pesados.
+Cómo leer esta guía: las afirmaciones sobre el alcance oficial se distinguen de las recomendaciones de diseño y de los
+ejemplos ficticios. Las reglas, porcentajes y valores numéricos propuestos no son parámetros operativos de NASA.
+Ruta del documento
+01. Problema y objetivo • 02. Sistemas del simulador • 03. Ejemplo de partida • 04. Datos científicos • 05. Proyecto Lunar
+Guardians • 06. Arquitectura • 07. MVP y cronograma • 08. Evaluación y entrega • 09. Fuentes.
+
+LINKS []
+PAGE 3
+SPACE APPS 2026  /  MISIÓN JUNIOR ASTRONAUT
+GUÍA DE PROYECTO
+Documento independiente  •  13 NOV 2026
+03
+01 / COMPRENDER EL RETO
+¿Qué busca resolver NASA?
+La enseñanza espacial suele caer en uno de dos extremos: simplificar tanto las misiones que
+desaparecen sus dificultades, o describir procesos demasiado técnicos para captar la atención de un
+estudiante joven.
+1
+CIENCIA REAL
+Incluir relaciones físicas y decisiones
+justificables, no números arbitrarios sin
+explicación.
+2
+JUGABILIDAD
+Ofrecer elecciones interesantes que el
+niño pueda comprender y
+experimentar.
+3
+APRENDIZAJE
+Explicar las consecuencias y fomentar
+estrategias mejores en una nueva
+partida.
+El concepto clave: trade-offs
+Un trade-off es un compromiso entre objetivos que compiten por recursos limitados. En una base espacial, más
+energía para un sistema puede dejar menos disponible para otro. Una buena decisión depende del contexto y
+rara vez es perfecta.
+NO ES SUFICIENTE
+SÍ RESPONDE AL RETO
+Un juego en el que solo se acumulan puntos.
+Un juego en el que se decide entre proteger a la tripulación,
+cultivar alimentos o investigar.
+Barras de recursos que cambian sin lógica.
+Recursos conectados por reglas transparentes y consecuencias
+visibles.
+Una única respuesta correcta en todas las situaciones.
+Varias estrategias razonables según el riesgo y las reservas.
+Imágenes de NASA sin integración científica.
+Un evento basado en una fuente NASA, identificado y explicado al
+jugador.
+Público objetivo de diseño
+Para el prototipo se propone orientar la experiencia a niños de 7 a 12 años. Es una decisión de diseño basada en
+el carácter juvenil del reto; la ficha de dificultad de la convocatoria no impone ese intervalo como una restricción
+absoluta.
+Principio rector: el usuario debe comprender qué sacrificó para obtener un beneficio y ser capaz de explicar por qué una
+estrategia funcionó o falló.
+
+LINKS []
+PAGE 4
+SPACE APPS 2026  /  MISIÓN JUNIOR ASTRONAUT
+GUÍA DE PROYECTO
+Documento independiente  •  13 NOV 2026
+04
+02 / LOS SISTEMAS
+Cinco sistemas y sus conexiones
+Cuatro sistemas están en el núcleo explícito de la descripción oficial. Las comunicaciones son una
+extensión educativa interesante para una segunda etapa.
+SISTEMA
+QUÉ APRENDE EL JUGADOR
+DECISIÓN EJEMPLO
+Soporte vital
+Mantener atmósfera, agua y condiciones
+habitables.
+Usar energía para generar oxígeno o guardarla.
+Radiación
+Reducir exposición cuando aumenta el
+riesgo.
+Suspender o mantener una actividad exterior.
+Energía
+Generar, consumir y reservar electricidad.
+Cargar baterías o alimentar equipos.
+Alimentos
+Entender el costo de producir alimentos.
+Dedicar agua y energía a los cultivos.
+Comunicaciones
+Comprender los límites de consultar a la
+Tierra.
+Esperar una respuesta o actuar localmente.
+Un sistema debe afectar a los demás
+ENERGÍA
+SOPORTE VITAL
+ALIMENTOS
+COMUNICACIONES
+SUPERVIVENCIA
+Ejemplo: si la generación eléctrica se reduce, la tripulación debe priorizar las cargas esenciales. El sistema de soporte vital, el
+invernadero y las comunicaciones no deberían consumir electricidad como si existieran reservas ilimitadas.
+En ingeniería real hay redundancias, márgenes de seguridad y múltiples subsistemas. El diagrama anterior es una
+simplificación pedagógica, no un esquema fiel de un hábitat lunar operativo.
+
+LINKS []
+PAGE 5
+SPACE APPS 2026  /  MISIÓN JUNIOR ASTRONAUT
+GUÍA DE PROYECTO
+Documento independiente  •  13 NOV 2026
+05
+03 / EXPERIENCIA DEL JUGADOR
+Así funcionaría una partida
+Una misión de siete días simulados, con cuatro tripulantes y reservas limitadas. Las decisiones
+cambian las condiciones de los días siguientes.
+CONCEPTO DE PROYECTO
+LUNAR
+GUARDIANS
+EVERY DECISION MATTERS
+Gestiona recursos. Protege a tu equipo.
+Aprende ciencia con decisiones reales.
+Escenario: día 5 - alerta de actividad solar
+El sistema anuncia un posible aumento del riesgo asociado a la meteorología espacial. Quedan recursos para
+realizar una sola acción prioritaria antes del próximo turno.
+DECISIÓN
+BENEFICIO
+COSTO / CONSECUENCIA
+A. Priorizar protección
+Disminuye el riesgo educativo
+simulado para la tripulación.
+Se consumen recursos y se posponen investigaciones.
+B. Mantener cultivos
+Se conserva la producción futura
+de alimentos.
+Menor capacidad para reforzar la protección.
+C. Continuar ciencia
+Aumenta el avance de la misión
+investigadora.
+La tripulación asume mayor riesgo y se consume
+energía.
+Bucle fundamental del juego
+Evento → elección → cambio de recursos → explicación científica → nuevo turno. Si la misión termina, el
+usuario recibe una explicación de su estrategia y puede intentarlo de nuevo.
+Advertencia: los resultados anteriores son ejemplos narrativos. No deben confundirse con una predicción auténtica del
+impacto de una tormenta solar en la superficie lunar.
+
+LINKS []
+PAGE 6
+SPACE APPS 2026  /  MISIÓN JUNIOR ASTRONAUT
+GUÍA DE PROYECTO
+Documento independiente  •  13 NOV 2026
+06
+04 / DATOS CIENTÍFICOS
+Fuentes NASA recomendadas
+La calidad científica no depende de mostrar muchos datasets: depende de seleccionar fuentes
+relevantes, explicar qué representan y usarlas correctamente.
+FUENTE
+APLICACIÓN RECOMENDADA
+PRIORIDAD
+NASA Open APIs
+Portal general de APIs; acceso a DONKI y otros servicios.
+Alta
+CCMC DONKI
+Registros históricos de meteorología espacial para activar eventos.
+Muy alta
+RadLab
+Telemetría de radiación para contexto científico y visualizaciones.
+Alta
+OSDR
+Investigaciones de biología espacial y efectos sobre organismos.
+Media
+Mars Trek
+Mapas, imágenes y elevación si se elige Marte.
+Media / Alta
+NASA ECLSS
+Fundamentos técnicos sobre oxígeno, agua y soporte vital.
+Alta
+CSA Food Production
+Material educativo sobre producción de alimentos en el espacio.
+Media
+Mi selección inicial para el hackatón
+1. NASA ECLSS para justificar las relaciones entre recursos. 2. DONKI para contextualizar un evento de
+meteorología espacial. 3. RadLab como ampliación únicamente si el equipo puede interpretar correctamente la
+variable, el instrumento y el contexto orbital.
+Cuida la trazabilidad: cada evento debe indicar nombre del conjunto de datos, organismo que lo publicó, fecha o intervalo
+observado, si es histórico o en vivo y qué parte del resultado es simulada.
+Acceso rápido a fuentes
+NASA Open APIs • CCMC DONKI • RadLab • NASA ECLSS
+
+LINKS [{'/S': '/URI', '/Type': '/Action', '/URI': 'https://api.nasa.gov/'}, {'/S': '/URI', '/Type': '/Action', '/URI': 'https://ccmc.gsfc.nasa.gov/tools/DONKI/'}, {'/S': '/URI', '/Type': '/Action', '/URI': 'https://visualization.osdr.nasa.gov/radlab/gui/data-api/'}, {'/S': '/URI', '/Type': '/Action', '/URI': 'https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/'}]
+PAGE 7
+SPACE APPS 2026  /  MISIÓN JUNIOR ASTRONAUT
+GUÍA DE PROYECTO
+Documento independiente  •  13 NOV 2026
+07
+04B / CALIDAD CIENTÍFICA
+Cómo integrar DONKI sin inventar ciencia
+Un evento de meteorología espacial es una observación; una dosis recibida por astronautas es otra
+variable distinta. No deben confundirse.
+PASO
+ACCIÓN DEL EQUIPO
+SALIDA EN EL JUEGO
+1. Elegir
+Seleccionar un evento histórico de DONKI y
+conservar su identificador/fecha.
+Ficha del evento real.
+2. Interpretar
+Entender qué tipo de evento registra y qué no
+demuestra.
+Texto educativo breve.
+3. Modelar
+Definir una regla pedagógica explícita,
+documentando los supuestos.
+Alerta y alternativas.
+4. Simular
+Calcular cambios de estado usando reglas internas
+del juego.
+Consecuencias visibles.
+5. Explicar
+Separar datos observados de escenarios ficticios.
+Panel: ciencia vs simulación.
+EJEMPLO DE FICHA DE DATOS
+Fuente: NASA CCMC - DONKI.
+Tipo: evento de meteorología espacial histórico.
+Fecha: fecha obtenida del registro seleccionado.
+Observación real: tipo y características documentadas del evento.
+Supuesto del juego: el evento activa un escenario de gestión del riesgo.
+Limitación: la puntuación de riesgo es ficticia y no es una dosis medida en el hábitat.
+Por qué importa
+DONKI ofrece datos y análisis de eventos, pero no permite deducir por sí solo una dosis concreta en una futura
+base lunar. Para una predicción física se necesitarían modelos de transporte, geometría, blindaje y entorno; en
+un juego introductorio es más honesto usarlo como contexto y documentar una regla simplificada.
+NASA CCMC advierte que los datos de DONKI deben considerarse de calidad para investigación y prototipado; no son por
+sí solos herramientas validadas para operaciones de seguridad.
+
+LINKS []
+PAGE 8
+SPACE APPS 2026  /  MISIÓN JUNIOR ASTRONAUT
+GUÍA DE PROYECTO
+Documento independiente  •  13 NOV 2026
+08
+05 / CONCEPTO PROPUESTO
+Lunar Guardians
+Every Decision Matters. Una propuesta de simulador de gestión lunar accesible desde el navegador,
+centrada en aprender de decisiones difíciles.
+BASE AURORA | DÍA 5 / 7
+PROTOTIPO ILUSTRATIVO
+Energía
+68 %
+Soporte vital
+84 %
+Seguridad
+56 %
+ALERTA SOLAR
+Debes elegir una estrategia.
+Cinco características diferenciadoras
+ • Eventos con contexto científico: registros reales identificados, sin afirmar falsamente que la simulación está validada.
+ • Decisiones sin soluciones perfectas: se gana algo y se sacrifica otra cosa.
+ • Rejugabilidad: distintos eventos, estados iniciales y estrategias producen resultados diferentes.
+ • Retroalimentación pedagógica: el juego explica cada consecuencia con lenguaje apropiado para niños.
+ • Accesibilidad: interfaz visual sencilla, lenguaje claro y opción bilingüe español/inglés.
+ 
+Alcance recomendado: base lunar única en el MVP. El modo Marte, los mapas 3D, la IA conversacional y la simulación de
+comunicaciones son ampliaciones posteriores, no requisitos para que exista una demo convincente.
+
+LINKS []
+PAGE 9
+SPACE APPS 2026  /  MISIÓN JUNIOR ASTRONAUT
+GUÍA DE PROYECTO
+Documento independiente  •  13 NOV 2026
+09
+06 / DESARROLLO TÉCNICO
+Arquitectura del simulador
+Una solución sencilla puede programarse casi por completo en el navegador. Lo esencial es mantener
+separado el contenido científico de las reglas de juego.
+CAPA
+TECNOLOGÍA POSIBLE
+RESPONSABILIDAD
+Interfaz
+React + Vite
+Pantallas, paneles de recursos, textos y acciones.
+Juego 2D
+CSS / SVG o Phaser (opcional)
+Animación ligera del hábitat y feedback visual.
+Motor de reglas
+JavaScript / TypeScript
+Aplicar decisiones, validar costos y actualizar estados.
+Datos NASA
+JSON local; scripts Python
+opcionales
+Preparar datasets históricos trazables.
+Publicación
+Hosting web estático
+Permitir prueba sin instalar nada ni crear cuenta.
+Un modelo energético inicial
+Energía final = energía inicial + generación - consumo
+Para cada turno t: E(t+1) = E(t) + G(t) - C(t), donde G representa generación y C consumo. El juego debe impedir estados
+imposibles y bloquear decisiones cuyo costo supera los recursos disponibles.
+Estado mínimo del jugador
+Variables: día, energía, soporte vital, seguridad, alimentos/producción, avance de misión y eventos pendientes.
+Acciones: generar o reservar energía; proteger; mantener soporte vital; cultivar; investigar. Resultados: éxito o
+fracaso explicado.
+Reglas técnicas que deben cumplirse
+ • Ningún recurso baja de cero ni supera máximos definidos sin una razón explícita.
+ • Cada acción tiene costo, beneficio, restricciones y retroalimentación.
+ • El jugador siempre sabe qué cambió y por qué cambió.
+ • El juego puede completarse de principio a fin sin depender de una API en tiempo real.
+ 
+LINKS []
+PAGE 10
+SPACE APPS 2026  /  MISIÓN JUNIOR ASTRONAUT
+GUÍA DE PROYECTO
+Documento independiente  •  13 NOV 2026
+10
+07 / ALCANCE
+MVP: construir lo indispensable
+MVP significa producto mínimo viable: la versión más pequeña que permite demostrar la idea central,
+aprender con una partida completa y recibir comentarios.
+FUNCIÓN
+INCLUIR EN EL MVP
+DEJAR PARA DESPUÉS
+Mundo
+Una única base lunar.
+Marte y múltiples mapas.
+Recursos
+Energía, soporte vital, seguridad.
+Sistemas detallados de agua y química.
+Decisiones
+3-5 acciones con costos reales dentro del juego.
+Árboles narrativos extensos.
+Eventos
+2-3 eventos, al menos uno con fuente NASA.
+Meteorología espacial en tiempo real.
+Misión
+7 días simulados y un resultado final.
+Campaña de decenas de niveles.
+Educación
+Explicación en cada decisión y final.
+Tutor inteligente personalizado.
+Acceso
+URL pública con demo funcional.
+Cuentas, backend y rankings globales.
+Criterios internos de aceptación
+ • El usuario completa una partida en aproximadamente 5 a 8 minutos (meta de diseño, no exigencia oficial).
+ • Existe al menos una decisión cuya mejor alternativa depende del estado de los recursos.
+ • Un evento incorpora una cita a fuente NASA y no confunde observación con simulación.
+ • Se explica al final por qué la misión tuvo éxito o fracasó.
+ • El enlace funciona en una ventana privada y en una pantalla pequeña.
+ 
+Prioridad número uno: termina el bucle de juego completo antes de añadir nuevas pantallas. Una demo jugable y
+comprensible comunica mejor la idea que muchas funciones inacabadas.
+
+LINKS []
+PAGE 11
+SPACE APPS 2026  /  MISIÓN JUNIOR ASTRONAUT
+GUÍA DE PROYECTO
+Documento independiente  •  13 NOV 2026
+11
+07B / PLAN DE TRABAJO
+Hoja de ruta para el hackatón
+Distribución estratégica sugerida para dos días de desarrollo. Los tiempos son orientativos y se
+ajustan según el equipo.
+BLOQUE 1 - INICIO
+Definir la misión y la lógica
+Acordar objetivo educativo, tres recursos, reglas y condición de victoria.
+BLOQUE 2
+Construir la partida completa
+Crear estado del juego, acciones, consumo y avance por turnos.
+BLOQUE 3
+Integrar ciencia y narrativa
+Seleccionar un dato NASA histórico, redactar evento y explicar fuentes.
+BLOQUE 4
+Diseñar interfaz y probar
+Mejorar legibilidad, botones, respuesta visual y errores de lógica.
+BLOQUE 5 - CIERRE
+Publicar, grabar y entregar
+Verificar URL, preparar demo de 30 segundos o hasta 7 diapositivas.
+Reparto de roles para un equipo
+Desarrollo: motor e interfaz. Ciencia y datos: fuentes, supuestos y verificación. Diseño educativo: texto infantil,
+accesibilidad y tutorial. Pruebas y presentación: test de usuario, narrativa del pitch y publicación. En equipos
+pequeños, una persona puede cubrir varios roles.
+Riesgo de ejecución: construir primero una versión que funcione completamente con datos locales. La dependencia de
+servicios externos en vivo puede romper la demostración justo cuando se evalúe.
+
+LINKS []
+PAGE 12
+SPACE APPS 2026  /  MISIÓN JUNIOR ASTRONAUT
+GUÍA DE PROYECTO
+Documento independiente  •  13 NOV 2026
+12
+08 / EVALUACIÓN
+Cómo defender un proyecto fuerte
+La mejor presentación permite a los jueces entender la necesidad, comprobar una decisión y ver el
+fundamento científico en pocos segundos.
+CRITERIO
+EVIDENCIA QUE CONVIENE MOSTRAR
+Impacto
+Uso en aulas; prueba con estudiantes; claridad del aprendizaje esperado.
+Creatividad
+Mecánica de decisiones conectadas y posibilidad de distintas estrategias.
+Validez
+Fuentes NASA, supuestos documentados y reglas científicamente razonables.
+Relevancia
+Gestión de base lunar/marciana y equilibrio entre necesidades del reto.
+Presentación
+Demo clara, accesible, verificable y con un mensaje memorable.
+Guion recomendado para una demo de 30 segundos
+SEGUNDOS
+QUÉ MOSTRAR
+0-5
+Problema: una base espacial debe elegir entre necesidades que compiten.
+5-13
+Pantalla de recursos y evento basado en datos NASA.
+13-22
+El jugador toma una decisión; cambian las variables.
+22-27
+El sistema explica qué ocurrió y por qué.
+27-30
+Lunar Guardians: aprender ingeniería tomando decisiones.
+Diferenciador que más valor aporta
+Mostrar la misma situación con dos decisiones diferentes y resultados distintos. Así la propuesta demuestra su
+mecánica central y evita depender solamente de afirmaciones como “es interactiva” o “usa inteligencia artificial”.
+Estos cinco criterios están documentados en materiales de evaluaciones de ediciones anteriores. Consulta la guía definitiva
+de 2026 para confirmar criterios, formato y cualquier ponderación específica; no asumas pesos porcentuales antiguos.
+
+LINKS []
+PAGE 13
+SPACE APPS 2026  /  MISIÓN JUNIOR ASTRONAUT
+GUÍA DE PROYECTO
+Documento independiente  •  13 NOV 2026
+13
+08B / PARTICIPACIÓN
+Fechas, entrega y precauciones
+Fechas publicadas por la web oficial para la edición 2026. El cierre aplica conforme al horario local del
+evento/equipo.
+HITO
+FECHA / REGLA
+Evento
+Sábado 14 y domingo 15 de noviembre de 2026.
+Inicio de envío
+14 de noviembre, 9:00 a. m. hora local.
+Cierre de envío
+15 de noviembre, 11:59 p. m. hora local.
+Equipo
+Hasta 6 participantes según la página de la edición 2026.
+Registro
+Crear cuenta, registrarse, escoger evento local o el evento universal virtual.
+Demo
+Verificar guía final; la orientación consultada señala video de hasta 30 s o hasta 7
+diapositivas.
+Lista de control final
+ • La página del proyecto explica problema, solución, datos y alcance.
+ • El repositorio o enlace permite revisar el trabajo sin restricciones innecesarias.
+ • Se identifican fuentes, licencias y contribuciones de terceros o herramientas de IA.
+ • Se prueba el juego en otro navegador/dispositivo y en ventana privada.
+ • La demo permite entender una decisión, su costo y su consecuencia.
+ • Se revisan las normas más recientes sobre menores de edad, participación y entrega.
+ 
+Importante: si utilizas imágenes, sonidos, código o datasets de terceros, respeta sus licencias y créditos. Esta guía propone
+fuentes y prácticas, pero no sustituye las reglas oficiales del evento.
+
+LINKS []
+PAGE 14
+SPACE APPS 2026  /  MISIÓN JUNIOR ASTRONAUT
+GUÍA DE PROYECTO
+Documento independiente  •  13 NOV 2026
+14
+09 / CONCLUSIONES
+Recomendación final
+Una buena solución a este reto no necesita ser el juego más grande: necesita hacer visibles y
+comprensibles los compromisos de ingeniería de una misión espacial.
+LA PROPUESTA EN SIETE PUNTOS
+1. Elegir la Luna.
+2. Simular tres recursos interdependientes.
+3. Crear una misión breve de siete días.
+4. Incorporar un evento histórico de NASA.
+5. Ofrecer varias decisiones con costos y beneficios.
+6. Explicar la ciencia después de cada turno.
+7. Publicar una demo web que se pueda terminar y repetir.
+Qué pondría primero en el desarrollo
+La mecánica es el corazón del proyecto. Si el jugador toma una decisión y puede observar cómo cambian sus
+reservas, la seguridad de la tripulación y el resultado de la misión, el producto ya comunica el objetivo principal
+del desafío.
+Qué reservaría para una segunda versión
+Modo Marte, mapas reales y navegación, invernadero detallado, simulación de comunicación, múltiples misiones,
+animaciones complejas, paneles de experimentos científicos y herramientas de personalización.
+CONCEPTO DE PROYECTO
+LUNAR
+GUARDIANS
+EVERY DECISION MATTERS
+Gestiona recursos. Protege a tu equipo.
+Aprende ciencia con decisiones reales.
+Idea central: que un niño termine la experiencia diciendo: “Ahora entiendo por qué no se puede hacer
+todo al mismo tiempo en una misión espacial”.
+
+LINKS []
+PAGE 15
+SPACE APPS 2026  /  MISIÓN JUNIOR ASTRONAUT
+GUÍA DE PROYECTO
+Documento independiente  •  13 NOV 2026
+15
+10 / FUENTES Y ENLACES
+Referencias verificables
+Referencias públicas consultadas al elaborar este informe. Los enlaces del documento son
+interactivos.
+01. Reto oficial - NASA Space Apps Challenge 2026
+Nombre, dificultad, materias y descripción del problema.
+02. Página oficial de la edición 2026
+Registro, equipos y cronología de participación.
+03. Recursos oficiales del concurso
+Guías, instrucciones y materiales vigentes.
+04. NASA: Open APIs
+Portal y documentación para desarrolladores, incluido DONKI.
+05. NASA CCMC: sistema DONKI
+Meteorología espacial y condiciones de uso de datos.
+06. NASA: Environmental Control and Life Support Systems
+Agua, oxígeno, revitalización de aire y subsistemas.
+07. NASA OSDR: RadLab Data API
+Mediciones instrumentales y acceso a datos de radiación.
+08. NASA OSDR: API biológica
+Acceso programático a estudios biológicos espaciales.
+09. NASA: Mars Trek
+Exploración de información geográfica sobre Marte.
+10. CSA: Food Production Toolkit
+Recursos educativos sobre producción de alimentos.
+11. NASA: noticia Space Apps 2026
+Contexto y alcance de la convocatoria 2026.
+Transparencia editorial: este PDF integra el análisis previamente solicitado, verificaciones públicas y recomendaciones de
+producto. Los nombres ficticios, interfaces ilustrativas, métricas didácticas y cronogramas de desarrollo son propuestas
+independientes, no materiales oficiales de NASA.
+
+LINKS [{'/S': '/URI', '/Type': '/Action', '/URI': 'https://www.spaceappschallenge.org/2026/challenges/junior-astronaut-mission-trainer/'}, {'/S': '/URI', '/Type': '/Action', '/URI': 'https://www.spaceappschallenge.org/2026/'}, {'/S': '/URI', '/Type': '/Action', '/URI': 'https://www.spaceappschallenge.org/resources/'}, {'/S': '/URI', '/Type': '/Action', '/URI': 'https://api.nasa.gov/'}, {'/S': '/URI', '/Type': '/Action', '/URI': 'https://ccmc.gsfc.nasa.gov/tools/DONKI/'}, {'/S': '/URI', '/Type': '/Action', '/URI': 'https://www.nasa.gov/reference/environmental-control-and-life-support-systems-eclss/'}, {'/S': '/URI', '/Type': '/Action', '/URI': 'https://visualization.osdr.nasa.gov/radlab/gui/data-api/'}, {'/S': '/URI', '/Type': '/Action', '/URI': 'https://www.nasa.gov/osdr-api/'}, {'/S': '/URI', '/Type': '/Action', '/URI': 'https://trek.nasa.gov/mars/'}, {'/S': '/URI', '/Type': '/Action', '/URI': 'https://www.asc-csa.gc.ca/eng/youth-educators/toolkits/food-production/'}, {'/S': '/URI', '/Type': '/Action', '/URI': 'https://science.nasa.gov/universe/nasa-welcomes-all-ages-experience-levels-for-space-apps-challenge/'}]

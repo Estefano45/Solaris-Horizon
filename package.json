@@ -1,0 +1,27 @@
+{
+  "name": "lunar-guardians",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.cjs",
+    "dev": "node server.cjs",
+    "test": "node tests.cjs && node nasa-tests.cjs && node nasa-api-tests.cjs && node surprise-tests.cjs && node netlify-tests.cjs && node science-tests.cjs && node multiplayer-tests.cjs && node realtime-tests.cjs && node realtime-victory-tests.cjs",
+    "test:browser": "node realtime-browser-tests.cjs",
+    "test:operations": "node operations-tests.cjs",
+    "test:multiplayer": "node multiplayer-tests.cjs && node realtime-browser-tests.cjs",
+    "firebase:configure": "node configure-firebase.cjs",
+    "build": "node build.cjs",
+    "netlify:dev": "netlify dev",
+    "deploy:preview": "netlify deploy",
+    "deploy": "netlify deploy --prod"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "netlify-cli": "^27.19.0"
+  },
+  "dependencies": {
+    "esbuild": "^0.28.2",
+    "firebase": "^13.3.0",
+    "firebase-admin": "^13.6.0"
+  }
+}

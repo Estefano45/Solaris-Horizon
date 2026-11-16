@@ -1,0 +1,22 @@
+const assert=require('node:assert/strict');
+const {chromium}=require('@playwright/test');
+const fs=require('node:fs'),path=require('node:path');
+(async()=>{
+ const base=process.argv[2];if(!base||new URL(base).protocol!=='https:')throw Error('Indica la URL HTTPS del despliegue.');
+ try{process.loadEnvFile(path.join(__dirname,'.env'))}catch(e){if(e.code!=='ENOENT')throw e}
+ const r=await fetch(base+'/api/nasa',{signal:AbortSignal.timeout(60000)});
+ assert.equal(r.status,200,'NASA route must work on Netlify');const raw=await r.text();
+ if(process.env.NASA_API_KEY)assert(!raw.includes(process.env.NASA_API_KEY),'Secret must not appear in the response');
+ const data=JSON.parse(raw);assert.equal(data.mode,'online');assert.equal(data.sites.length,2);assert.equal(data.donki.httpStatus,200);
+ console.log('PUBLIC NASA:',data.mode,data.events.length,'events;',data.donki.authentication);
+ const sr=await fetch(base+'/api/science',{signal:AbortSignal.timeout(25000)});assert.equal(sr.status,200);const science=await sr.json();assert.equal(science.diviner.status,'online');assert.equal(science.osdr.status,'online');console.log('PUBLIC SCIENCE:',science.diviner.cells.map(c=>c.siteId+': '+c.curve.length+' records').join('; '),science.osdr.id,science.osdr.temperatureC+' C');
+ const multiplayer=await fetch(base+'/api/multiplayer/config');assert.equal(multiplayer.status,200);const mp=await multiplayer.json();assert.equal(mp.mode,'firebase');console.log('PUBLIC MULTIPLAYER:',mp.enabled?'Firebase configured':'Waiting for Firebase project; no simulated cloud connection');
+ const tile=await fetch(base+'/api/moon-tile?x=36&y=15');assert.equal(tile.status,200);assert(tile.headers.get('content-type').startsWith('image/jpeg'));assert((await tile.arrayBuffer()).byteLength>1000);
+ for(const file of ['/.env','/nasa-service.cjs','/science-service.cjs','/multiplayer-service.cjs','/.firebase-service-account.json','/.firebase-netlify.env','/server.cjs']){const privateFile=await fetch(base+file);assert.equal(privateFile.status,404,'Private source must not be published: '+file)}
+ const browser=await chromium.launch({channel:'msedge',headless:true});
+ try{const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto(base);assert.equal(await page.locator('html').getAttribute('lang'),'en');assert.equal(await page.locator('#start').textContent(),'PLAY');await page.waitForFunction(()=>nasaData?.mode==='online',null,{timeout:65000});await page.click('#nasaSetup');await page.waitForFunction(()=>[...document.querySelectorAll('.moonTiles img')].length===9&&[...document.querySelectorAll('.moonTiles img')].every(i=>i.complete&&i.naturalWidth>0),null,{timeout:30000});
+ assert.equal(await page.locator('#eventChoice').count(),0);assert.equal(await page.getByRole('link',{name:'Sun query'}).count(),1);await page.click('#launchNASA');assert(await page.evaluate(()=>playing&&Array.isArray(state.environment.crises)&&thermal(state)&&studyData(state)));await page.evaluate(()=>showModule('food'));assert((await page.locator('#modal').textContent()).includes('OSD-267'));await page.click('[data-close]');await page.evaluate(async()=>{player.x=1184;player.y=560;await expeditionDo('exit');player.x=992;player.y=1312;await expeditionDo('mine',0);player.x=416;player.y=550;await expeditionDo('enter');player.x=1104;player.y=192;await expeditionDo('deposit')});for(const [key,id] of [['power','battery'],['shield','engine'],['science','soil'],['life','repair']]){await page.evaluate(([key,id])=>choose(key,id),[key,id]);assert.equal(await page.locator('#operationBench').count(),1);assert(await page.locator('#miniDone').isDisabled());await page.click('[data-close]');}await page.evaluate(()=>antennaGame());await page.waitForFunction(()=>document.querySelector('#antennaReadout')?.textContent.includes('Antenna'));const before=await page.locator('#antennaReadout').textContent();await page.waitForTimeout(1500);assert.notEqual(await page.locator('#antennaReadout').textContent(),before);await page.click('[data-close]');
+ fs.mkdirSync(path.join(__dirname,'test-results'),{recursive:true});await page.screenshot({path:path.join(__dirname,'test-results/netlify-public.png')});assert.deepEqual(errors,[]);console.log('PASS: public browser, regional maps, new mission, moving antenna target, no JS errors; private files not published.');
+ }finally{await browser.close()}
+})().catch(e=>{console.error(e.message);process.exitCode=1});

@@ -1,0 +1,69 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lunar Guardians · Base Aurora</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="game.css"><link rel="stylesheet" href="cozy.css"></head><body>
+<canvas id="world" aria-label="Aurora Base. Use WASD or arrow keys to move and E to interact."></canvas>
+
+<div id="hud" hidden>
+ <header>
+  <div class="logo">✦ LUNAR <b>GUARDIANS</b><small>BASE AURORA / <span id="day"></span></small></div>
+  <div id="stats"></div>
+  <button id="pause">Ⅱ <span data-i18n="hudMenu">Menu</span></button>
+ </header>
+ <aside class="mission">
+  <small data-i18n="hudMission">MISSION OBJECTIVE</small>
+  <div id="objective"></div>
+  <div id="event"></div>
+  <button id="science">Science log ↗</button>
+ </aside>
+ <div class="bottom">
+  <div class="crew"><small data-i18n="hudCrew">CREW · KEYS 1–4</small><div id="roles"></div></div>
+  <div id="prompt" aria-live="polite"></div>
+ </div>
+ <div id="toast" role="status"></div>
+ <div class="touch">
+  <button data-key="ArrowUp">↑</button>
+  <div>
+   <button data-key="ArrowLeft">←</button>
+   <button data-key="ArrowDown">↓</button>
+   <button data-key="ArrowRight">→</button>
+  </div>
+  <div class="act">
+   <button data-key="e">E</button>
+   <button data-key="r">R</button>
+  </div>
+ </div>
+</div>
+
+<section id="title">
+ <div class="eyebrow" data-i18n="subtitle">A COOPERATIVE MISSION ON THE MOON</div>
+ <h1>LUNAR<br><em>GUARDIANS</em></h1>
+ <p class="tagline" data-i18n="tagline">Explore Aurora Base, manage life support, drive a rover and survive solar storms.</p>
+ <div class="titleActions">
+ <label class="nameRow"><span data-i18n="yourName">YOUR NAME</span><input id="playerName" maxlength="18" data-i18n-ph="namePlaceholder" placeholder="Commander…" autocomplete="off"></label>
+ <button id="start" class="primary" data-i18n="play">PLAY</button>
+ <button id="resume" hidden data-i18n="resume">Continue saved mission</button>
+ <button id="multiplayer" data-i18n="multiplayer">ONLINE CREW · 1–4</button>
+ <div class="row2">
+  <button id="settingsBtn" data-i18n="settings">SETTINGS</button>
+  <button id="controlsBtn" data-i18n="controls">CONTROLS</button>
+ </div>
+ </div>
+ <div class="instructions"><span><kbd>W A S D</kbd> <span data-i18n="ctlMove">Move</span></span><span><kbd>E</kbd> <span data-i18n="ctlInteract">Interact</span></span><span><kbd>1–4</kbd> <span data-i18n="hudCrew">Crew</span></span></div>
+ <small class="foot">Junior Astronaut Mission Trainer · NASA data (DONKI · Horizons · Diviner · OSDR)</small>
+</section>
+
+<dialog id="dialog"><div id="modal"></div></dialog>
+
+<script src="sources.js"></script>
+<script src="nasa-snapshot.js"></script>
+<script src="engine.js"></script><script src="realtime-core.js"></script>
+<script src="i18n.js"></script>
+<script src="audio.js"></script>
+<script src="pixel-astronaut.js"></script><script src="pixel.js"></script>
+<script src="cozy-textures.js"></script><script src="cozy-characters.js"></script><script src="cozy.js"></script><script src="sim.js"></script>
+<script src="world.js"></script>
+<script src="ui.js"></script>
+<script src="game.js"></script>
+<script src="minigames.js"></script>
+<script src="operations.js"></script>
+<script src="multiplayer.js"></script>
+<script src="nasa-ui.js"></script>
+<script src="cozy-ui.js"></script><script src="crew-experience.js"></script></body></html>

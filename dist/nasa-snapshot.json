@@ -1,0 +1,202 @@
+{
+  "version": 1,
+  "retrievedAt": "2026-11-14T21:45:21.640Z",
+  "mode": "offline",
+  "sites": [
+    {
+      "id": "aurora",
+      "name": "Aurora · región de Tranquillitatis",
+      "lon": 23.47,
+      "lat": 0.674,
+      "sources": [
+        "https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%2710%27&CENTER=%27coord%40301%27&COORD_TYPE=%27GEODETIC%27&SITE_COORD=%2723.47%2C0.674%2C0%27&START_TIME=%272024-05-17%27&STOP_TIME=%272024-06-10%27&STEP_SIZE=%274+d%27&QUANTITIES=%274%27&CSV_FORMAT=%27YES%27",
+        "https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%27399%27&CENTER=%27coord%40301%27&COORD_TYPE=%27GEODETIC%27&SITE_COORD=%2723.47%2C0.674%2C0%27&START_TIME=%272024-05-17%27&STOP_TIME=%272024-06-10%27&STEP_SIZE=%274+d%27&QUANTITIES=%274%27&CSV_FORMAT=%27YES%27"
+      ],
+      "turns": [
+        {
+          "date": "2024-05-17T00:00:00Z",
+          "sun": {
+            "az": 89.187467,
+            "el": 38.258757
+          },
+          "earth": {
+            "az": 258.786393,
+            "el": 67.984818
+          }
+        },
+        {
+          "date": "2024-05-21T00:00:00Z",
+          "sun": {
+            "az": 81.211141,
+            "el": 87.004953
+          },
+          "earth": {
+            "az": 272.785486,
+            "el": 63.156477
+          }
+        },
+        {
+          "date": "2024-05-25T00:00:00Z",
+          "sun": {
+            "az": 271.018638,
+            "el": 44.219288
+          },
+          "earth": {
+            "az": 281.401851,
+            "el": 60.655353
+          }
+        },
+        {
+          "date": "2024-05-29T00:00:00Z",
+          "sun": {
+            "az": 271.315362,
+            "el": -4.543958
+          },
+          "earth": {
+            "az": 281.010736,
+            "el": 62.447937
+          }
+        },
+        {
+          "date": "2024-06-02T00:00:00Z",
+          "sun": {
+            "az": 273.112293,
+            "el": -53.382559
+          },
+          "earth": {
+            "az": 268.873153,
+            "el": 66.577937
+          }
+        },
+        {
+          "date": "2024-06-06T00:00:00Z",
+          "sun": {
+            "az": 80.607544,
+            "el": -77.426982
+          },
+          "earth": {
+            "az": 252.092996,
+            "el": 69.694244
+          }
+        },
+        {
+          "date": "2024-06-10T00:00:00Z",
+          "sun": {
+            "az": 88.000827,
+            "el": -28.571773
+          },
+          "earth": {
+            "az": 249.170026,
+            "el": 70.23137
+          }
+        }
+      ]
+    },
+    {
+      "id": "este",
+      "name": "Aurora East · training sector",
+      "lon": 30,
+      "lat": 5,
+      "sources": [
+        "https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%2710%27&CENTER=%27coord%40301%27&COORD_TYPE=%27GEODETIC%27&SITE_COORD=%2730%2C5%2C0%27&START_TIME=%272024-05-17%27&STOP_TIME=%272024-06-10%27&STEP_SIZE=%274+d%27&QUANTITIES=%274%27&CSV_FORMAT=%27YES%27",
+        "https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%27399%27&CENTER=%27coord%40301%27&COORD_TYPE=%27GEODETIC%27&SITE_COORD=%2730%2C5%2C0%27&START_TIME=%272024-05-17%27&STOP_TIME=%272024-06-10%27&STEP_SIZE=%274+d%27&QUANTITIES=%274%27&CSV_FORMAT=%27YES%27"
+      ],
+      "turns": [
+        {
+          "date": "2024-05-17T00:00:00Z",
+          "sun": {
+            "az": 93.470522,
+            "el": 44.687449
+          },
+          "earth": {
+            "az": 253.593727,
+            "el": 60.579878
+          }
+        },
+        {
+          "date": "2024-05-21T00:00:00Z",
+          "sun": {
+            "az": 222.760927,
+            "el": 84.73936
+          },
+          "earth": {
+            "az": 265.760391,
+            "el": 56.537223
+          }
+        },
+        {
+          "date": "2024-05-25T00:00:00Z",
+          "sun": {
+            "az": 267.654598,
+            "el": 37.639701
+          },
+          "earth": {
+            "az": 273.54837,
+            "el": 54.707798
+          }
+        },
+        {
+          "date": "2024-05-29T00:00:00Z",
+          "sun": {
+            "az": 272.254603,
+            "el": -10.933123
+          },
+          "earth": {
+            "az": 272.681458,
+            "el": 56.44109
+          }
+        },
+        {
+          "date": "2024-06-02T00:00:00Z",
+          "sun": {
+            "az": 281.111829,
+            "el": -59.33807
+          },
+          "earth": {
+            "az": 261.699629,
+            "el": 59.675173
+          }
+        },
+        {
+          "date": "2024-06-06T00:00:00Z",
+          "sun": {
+            "az": 71.847015,
+            "el": -70.037866
+          },
+          "earth": {
+            "az": 248.252194,
+            "el": 62.053693
+          }
+        },
+        {
+          "date": "2024-06-10T00:00:00Z",
+          "sun": {
+            "az": 86.438858,
+            "el": -21.842708
+          },
+          "earth": {
+            "az": 246.021864,
+            "el": 62.517987
+          }
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "2024-05-10T06:27:00-FLR-001",
+      "date": "2024-05-10T06:27Z",
+      "peak": "2024-05-10T06:54Z",
+      "classType": "X3.9",
+      "url": "https://ccmc.gsfc.nasa.gov/DONKI/view/FLR/30666/-1"
+    },
+    {
+      "id": "2024-05-10T13:58:00-FLR-001",
+      "date": "2024-05-10T13:58Z",
+      "peak": "2024-05-10T14:11Z",
+      "classType": "M5.9",
+      "url": "https://ccmc.gsfc.nasa.gov/DONKI/view/FLR/30680/-1"
+    }
+  ],
+  "mapSource": "https://trek.nasa.gov/tiles/Moon/EQ/LRO_WAC_Mosaic_Global_303ppd_v02/1.0.0/WMTSCapabilities.xml"
+}

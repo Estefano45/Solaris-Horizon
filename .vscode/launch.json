@@ -1,0 +1,1 @@
+{"version":"0.2.0","configurations":[{"name":"Jugar Lunar Guardians","type":"node","request":"launch","program":"${workspaceFolder}/server.cjs","console":"internalConsole","serverReadyAction":{"pattern":"Lunar Guardians listo: (https?://[^\\s]+)","uriFormat":"%s","action":"debugWithEdge"}}]}

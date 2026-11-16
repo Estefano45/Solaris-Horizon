@@ -1,0 +1,12 @@
+# Local Netlify folder
+.netlify
+
+.firebase-service-account.json
+.firebase-netlify.env
+firebase-web-config.json
+
+.env
+.env.*
+!.env.example
+node_modules/
+test-results/
